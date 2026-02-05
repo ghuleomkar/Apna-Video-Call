@@ -44,9 +44,36 @@
 }
 
 .landingMainContainer img {
-  height:70vh;
-  width:auto;
+  width: 90%;            
+  max-height: 75vh;        
+  object-fit: cover;       
+  border-radius: 24px;
+  box-shadow: 
+      0 40px 120px rgba(0,0,0,0.6),
+      0 10px 40px rgba(0,0,0,0.4);
+
+  /* Slight floating effect */
+  transform: translateY(20px);
+
+  display: block;  
+  margin-left: auto; 
+
+  transition: transform 0.5s ease, 
+              box-shadow 0.5s ease,
+              filter 0.4s ease;
 }
+
+.landingMainContainer img:hover{
+     transform: translateY(-6px) scale(1.03);
+
+   box-shadow:
+      0 60px 140px rgba(0,0,0,0.7),
+      0 20px 60px rgba(0,0,0,0.5);
+
+   /* Slight brightness boost */
+   filter: brightness(1.08);
+}
+
 
 .landingMainContainer > div:nth-child(1) div[role='button'] {
   background-color: #D97500;
@@ -83,10 +110,25 @@
 }
 
 .rightPanel > img {
-  width:30vw;
+  width:40vw;
   height:auto;
   border-radius:20px;
   align-items: center;
   margin-left:50%;
-  
+  margin-top:-10%;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+   transition: 
+      transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+      filter 0.5s ease;
+}
+
+.rightPanel > img:hover{
+      transform: translateY(-12px) scale(1.04);
+
+   box-shadow:
+      0 60px 140px rgba(0,0,0,0.7),
+      0 20px 60px rgba(0,0,0,0.5);
+
+   filter: brightness(1.08);
 }
