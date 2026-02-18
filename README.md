@@ -1,69 +1,107 @@
-📞 Online Video Conferencing Platform
+# 📞 Zoom-Inspired Real-Time Video Conferencing Platform
 
-A real-time video calling web application built using WebRTC, Socket.io, Node.js, and Express.
-This project enables users to create or join rooms and communicate through peer-to-peer (P2P) video and audio calls.
+A scalable real-time video conferencing web application that enables seamless peer-to-peer audio and video communication. Built using **WebRTC**, **Socket.io**, **Node.js**, and **Express**, this platform allows users to instantly create or join meeting rooms and collaborate with low-latency media streaming.
 
-🚀 Features
+👉 Designed with a focus on performance, reliability, and real-world communication architecture.
 
-• Real-time video & audio calling
+---
 
-• Room-based calling system
+## 🚀 Live Demo
+🌐 https://apna-video-call-1-tbh6.onrender.com
+---
 
-• Peer-to-peer direct connection (WebRTC)
+## 🛠 Tech Stack
 
-• Socket.io signaling server
+**Frontend:** HTML, CSS, JavaScript  
+**Backend:** Node.js, Express.js  
+**Real-Time Communication:** WebRTC, Socket.io  
+**Architecture:** Peer-to-Peer (P2P) Media Streaming  
+**Deployment:** Render  
 
-• User join/leave notifications
+---
 
-• Mute/Unmute audio
+## ⭐ Key Features
 
-• Start/Stop video
+✅ Real-time high-quality video & audio calling  
+✅ Secure room-based meeting system  
+✅ Peer-to-peer connection for minimal latency  
+✅ WebSocket-based signaling using Socket.io  
+✅ Instant user join/leave notifications  
+✅ Mute / Unmute audio controls  
+✅ Start / Stop video functionality  
+✅ Clean and responsive user interface  
+✅ Fast and lightweight server architecture  
 
-• Simple and clean UI
+---
 
-• Fast and lightweight backend
+## ⚙️ Installation & Setup
 
-
-
-⚙️ Installation & Setup
-
-1️⃣ Clone the Repository
+### 1️⃣ Clone the repository
+```bash
 git clone https://github.com/ghuleomkar/Apna-Video-Call.git
+```
 
-2️⃣ Install dependencies
+### 2️⃣ Navigate to project directory
+```bash
+cd Apna-Video-Call
+```
+
+### 3️⃣ Install dependencies
+```bash
 npm install
+```
 
-3️⃣ Start the server
+### 4️⃣ Start the server
+```bash
 node app.js
+```
 
-4️⃣ Open in browser
+### 5️⃣ Open in browser
+```bash
 http://localhost:3000
+```
 
+---
 
-🧪 How It Works
+## 🧠 How It Works
 
-A user creates or joins a room.
+- Users create or join a unique meeting room.  
+- **Socket.io** establishes signaling between participants.  
+- **WebRTC** negotiates a direct peer-to-peer connection.  
+- Audio and video streams are transmitted with very low latency.  
+- The server efficiently manages connections and room events.  
 
-Socket.io handles signaling between clients.
+---
 
-WebRTC establishes peer-to-peer connection.
+## 💡 What This Project Demonstrates
 
-Audio and video streams are shared directly between users.  
+✔ Strong understanding of real-time communication systems  
+✔ Hands-on experience with WebRTC signaling flow  
+✔ Ability to design scalable backend architecture  
+✔ Practical knowledge of WebSockets  
+✔ Building production-style full stack applications  
 
+---
 
+## 🔮 Future Enhancements
 
-🌐 Live Demo
-https://apna-video-call-1-tbh6.onrender.com
+- Screen sharing  
+- Meeting recording  
+- Chat functionality  
+- Host controls & moderation  
+- Waiting rooms  
+- Authentication system  
+- Multi-user group calls optimization  
 
+---
 
-License
+## 📜 License
 
-This project is licensed under the MIT License.
+This project is licensed under the **MIT License**.
 
-⭐ Contributions
+---
 
-Contributions are welcome!
-Feel free to open issues or submit pull requests.
+## 🤝 Contributions
 
-
-
+Contributions are welcome!  
+Feel free to open issues or submit pull requests to improve the platform.
