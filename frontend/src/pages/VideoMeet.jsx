@@ -284,7 +284,16 @@ export default function VideoMeetComponent() {
             socketRef.current.emit('join-call', window.location.href)
             socketIdRef.current = socketRef.current.id
 
-            socketRef.current.on('chat-message', addMessage)
+            socketRef.current.on("chat-message", (data) => {
+    console.log("RECEIVED:", data); // debug
+
+    addMessage(data.message, data.sender);
+
+    // new message count
+    if (data.sender !== username) {
+        setNewMessages(prev => prev + 1);
+    }
+});
 
             socketRef.current.on('user-left', (id) => {
                 setVideos((videos) => videos.filter((video) => video.socketId !== id))
@@ -421,31 +430,44 @@ export default function VideoMeetComponent() {
         setMessage(e.target.value);
     }
 
-    const addMessage = (data, sender, socketIdSender) => {
-        setMessages((prevMessages) => [
-            ...prevMessages,
-            { sender: sender, data: data }
-        ]);
-        if (socketIdSender !== socketIdRef.current) {
-            setNewMessages((prevNewMessages) => prevNewMessages + 1);
-        }
-    };
 
 
 
-    let sendMessage = () => {
-        console.log(socketRef.current);
-        socketRef.current.emit('chat-message', message, username)
-        setMessage("");
+const addMessage = (message, sender) => {
+    setMessages((prev) => [
+        ...prev,
+        { message: message, sender: sender }
+    ]);
+};
 
-        // this.setState({ message: "", sender: username })
-    }
+let sendMessage = () => {
+    if (!message.trim()) return;
+
+    socketRef.current.emit('chat-message', {
+        message,
+        sender: username
+    });
+    // addMessage(message,username);
+    setMessage("");
+};
 
     
-    let connect = () => {
-        setAskForUsername(false);
-        getMedia();
-    }
+const [loading, setLoading] = useState(false);
+let connect = () => {
+  if (!username.trim()) {
+    alert("Please enter your name");
+    return;
+  }
+
+  setLoading(true);
+
+  setTimeout(() => {
+    setAskForUsername(false);
+    getMedia();
+  }, 2000);
+};
+
+
 
 
     return (
@@ -453,19 +475,47 @@ export default function VideoMeetComponent() {
 
             {askForUsername === true ?
 
-                <div>
+
+                <div className={styles.lobbyContainer}>
+
+  <div className={styles.lobbyCard}>
+    
+    <h2>Join Meeting</h2>
+    <p>Enter your name to continue</p>
+
+    <TextField
+      fullWidth
+      variant="outlined"
+      label="Your Name"
+      value={username}
+      onChange={(e) => setUsername(e.target.value)}
+      className={styles.input}
+    />
 
 
-                    <h2>Enter into Lobby </h2>
-                    <TextField id="outlined-basic" label="Username" value={username} onChange={e => setUsername(e.target.value)} variant="outlined" />
-                    <Button variant="contained" onClick={connect}>Connect</Button>
+    <Button
+      fullWidth
+      variant="contained"
+      onClick={connect}
+      className={styles.joinBtn}
+      disabled={loading}
+    >
+      {/* Join Now */}
+      {loading ? "Joining..." : "Join Now"}
+    </Button>
 
+    <video
+      ref={localVideoref}
+      autoPlay
+      muted
+      className={styles.previewVideo}
+    />
 
-                    <div>
-                        <video ref={localVideoref} autoPlay muted></video>
-                    </div>
-
-                </div> :
+  </div>
+</div>
+                
+                
+                :
 
 
                 <div className={styles.meetVideoContainer}>
@@ -478,12 +528,22 @@ export default function VideoMeetComponent() {
                             <div className={styles.chattingDisplay}>
 
                                 {messages.length !== 0 ? messages.map((item, index) => {
+                                    const isMe = item.sender === username;
 
-                                    console.log(messages)
+
+                                    
                                     return (
-                                        <div style={{ marginBottom: "20px" }} key={index}>
-                                            <p style={{ fontWeight: "bold" }}>{item.sender}</p>
-                                            <p>{item.data}</p>
+                                        <div key={index}>
+                                            <p className={styles.chatSender} style={{textAlign:isMe ? "right" : "left"}}>{item.sender}</p>
+                                    
+                                             <div
+                     className={`${styles.chatMessage} ${
+                  isMe ? styles.myMessage : ""
+                }`}
+            >
+              {item.message}
+                                            
+                                        </div>
                                         </div>
                                     )
                                 }) : <p>No Messages Yet</p>}

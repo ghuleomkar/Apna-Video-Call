@@ -24,17 +24,20 @@ export const AuthProvider = ({ children }) => {
 
     const handleRegister = async (name, username, password) => {
         try {
+            console.log("REGISTER API HIT");
             let request = await client.post("/register", {
                 name: name,
                 username: username,
                 password: password
             })
 
+            console.log(request);
 
             if (request.status === httpStatus.CREATED) {
                 return request.data.message;
             }
         } catch (err) {
+            console.log(err);
             throw err;
         }
     }

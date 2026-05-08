@@ -1,5 +1,6 @@
 import httpStatus from "http-status";
 import { User } from "../models/user.model.js";
+import { Meeting } from "../models/meeting.model.js";
 import bcrypt, { hash } from "bcrypt";
 import crypto from "crypto";
 
@@ -35,6 +36,7 @@ const login = async (req, res) => {
 };
 
 const register = async (req, res) => {
+  console.log(req.body);
   const { name, username, password } = req.body;
 
   try {
@@ -52,7 +54,13 @@ const register = async (req, res) => {
       password: hashedPassword,
     });
 
-    await newUser.save();
+    const saveUser = await newUser.save(); 
+    console.log(saveUser)  
+    console.log(newUser);
+
+    // await newUser.save();
+
+    console.log("USER SAVED");
 
     res.status(httpStatus.CREATED).json({ message: "User Registered" });
   } catch (e) {

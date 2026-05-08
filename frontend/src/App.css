@@ -1,134 +1,531 @@
-.landingPageContainer {
-  height:100vh;
-  width:100vw;
-  background-image: url("/public/background.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  color:white;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+
+/* front landing page */
+/* MAIN CONTAINER */
+ .landingPageContainer {
+  min-height: 100vh;
+  height: auto;       
+  background: radial-gradient(circle at top right, #1a1a2e, #000);
+  color: white;
+  font-family: 'Poppins', sans-serif;
 }
 
-.landingPageContainer nav {
-  padding-inline:1.2rem;
-  padding-block:1.6rem;
+/* NAVBAR */
+ .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1.5rem 3rem;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* join , register login */
+.navlist {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navlist p {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.navlist p:hover {
+  color: #ff9839;
+} 
+
+/* LOGIN BUTTON */
+ .loginBtn {
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  border: none;
+  background: linear-gradient(135deg, #ff9839, #ff6a00);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.loginBtn:hover {
+  transform: scale(1.05);
+}
+
+/* HERO SECTION */
+ .landingMainContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 3rem;
+  margin-bottom: 4rem;
+} 
+
+/* LEFT SIDE */
+ .leftContent {
+  max-width: 500px;
+}
+
+.leftContent h1 {
+  font-size: 3rem;
+  line-height: 1.3;
+}
+
+.leftContent span {
+  color: #ff9839;
+} 
+
+ .subtitle {
+  margin-top: 1rem;
+  color: #aaa;
+  font-size: 1.1rem;
+}
+
+/* BUTTONS */
+ .ctaButtons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.primaryBtn {
+  background: linear-gradient(135deg, #ff9839, #ff6a00);
+  padding: 0.9rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+} 
+
+.primaryBtn:hover {
+  transform: scale(1.05);
+}
+
+.secondaryBtn {
+  background: transparent;
+  border: 1px solid #555;
+  padding: 0.9rem 1.5rem;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.secondaryBtn:hover {
+  border-color: #ff9839;
+} 
+
+/* RIGHT SIDE IMAGE */
+.rightContent img {
+  width: 500px;
+  border-radius: 25px;
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6);
+  transition: 0.5s;
+  object-fit: cover;
+} 
+
+ .rightContent img:hover {
+  transform: translateY(-10px) scale(1.03);
+} 
+
+.landingPageContainer {
+  background: radial-gradient(circle at 80% 20%, #1f1f3a, #000);
+  animation: bgMove 10s infinite alternate;
+}
+
+@keyframes bgMove {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+
+/* Features card HD secure & fast card */
+.features {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 2rem 3rem;
+  flex-wrap: wrap;  
+}
+
+.featureCard {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 20px;
+  width: 250px;
+  text-align: center;
+  transition: 0.3s;
+  backdrop-filter: blur(10px);
+  border: 1px solid transparent;
+} 
+
+
+.featureCard:hover {
+  transform: translateY(-10px);
+  border: 1px solid #ff9839;
+}
+
+.featureCard h3 {
+  margin-bottom: 0.5rem;
+  color: #ff9839;
+}
+
+.featureCard p {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+ @media (max-width: 768px) {
+
+  .landingMainContainer {
+    flex-direction: column-reverse;
+    gap: 3rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .leftContent h1 {
+    font-size: 2.2rem;
+  }
+
+  .rightContent img {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .ctaButtons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+/* navbar mobile responsive */
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .navlist {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* NAVBAR  after login Home page*/
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  background: #1a1a2e;
+  backdrop-filter: blur(10px);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logoSection h2 {
+  font-size: 1.6rem;
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navActions p {
+  cursor: pointer;
+}
+
+.logoutBtn {
+  color: white !important;
+  border: 1px solid #ff9839 !important;
+}
+
+.logoutBtn:hover {
+  background: #ff9839 !important;
+  color: black !important;
+}
+
+/* MAIN CONTAINER */
+.meetContainer {
+  height: calc(100vh - 80px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem;
+  background: radial-gradient(circle at 80% 20%,#1a1a2e, #000 );
+  color: white;
+}
+
+/* LEFT PANEL */
+.leftPanel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.meetingBox {
+  max-width: 400px;
+  animation: fadeUp 0.7s ease;
+}
+
+.meetingBox h2 {
+  font-size: 2.3rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  line-height: 1.3;
+  text-shadow: 0 0 20px rgba(255, 152, 57, 0.2);
+}
+
+
+/* JOIN SECTION */
+.joinSection {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.joinSection button {
+  background: linear-gradient(135deg, #ff9839, #ff6a00) !important;
+  color: white !important;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius:10px;
+  
+}
+
+.joinSection button:hover{
+  transform: scale(1.02);
+}
+
+/* Right panel */
+.rightPanel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.rightPanel img {
+  width: 80%;
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6);
+  transition: 0.5s;
+}
+
+.rightPanel img:hover {
+  transform: translateY(-5px) scale(1.03);
+}
+
+
+/* meeting code box */
+.meetContainer .MuiOutlinedInput-root {
+  background: rgba(255,255,255,0.08);
+  border-radius: 10px;
+}
+
+.meetContainer .MuiOutlinedInput-notchedOutline {
+  /* border-color: rgba(2555,255,0,25.3) !important; */
+  border-color: rgba(255,255,255,0.3) !important;
+}
+
+.meetContainer .MuiInputLabel-root {
+  color: #aaa !important;
+}
+
+.meetContainer .MuiOutlinedInput-input {
+  color: white !important;
+}
+
+
+/* Histroy btn */
+.navActions {
+  display: flex;
+  align-items: center;
+     
+}
+/* histroy icon */
+.navActions svg {
+  color: white;
+}
+
+
+/* Responsiv */
+@media (max-width: 768px) {
+  .meetContainer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .joinSection {
+    flex-direction: column;
+  }
+
+  .rightPanel img {
+    margin-top: 2rem;
+    width: 90%;
+  }
+}
+
+
+/* meeting code box automatic animation  animation: fadeUp 0.7s ease; */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+
+
+
+/* Histroy page  */
+
+/* Your meetings & meetings length */
+.historyTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.historyTitle p {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+
+/* MAIN */
+.historyContainer {
+  min-height: 100vh;
+  background: radial-gradient(circle at top right, #1a1a2e, #000);
+  color: white;
+  padding: 2rem;
+}
+
+/* NAVBAR */
+.historyNavbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+   z-index: 1000;
+  position: sticky;
+  top:0;
+  backdrop-filter: blur(10px);
  
 }
 
-
-.landingPageContainer nav h2 {
-  font-size:1.8rem;
-  font-weight:500;
+/* GRID */
+.historyContent {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
 }
 
-.landingPageContainer nav .navlist{
-  display:flex;
-  gap:1.6rem;
-  cursor:pointer;
+/* CARD */
+.historyCard {
+  background: rgba(255,255,255,0.05) !important;
+  border-radius: 16px !important;
+  backdrop-filter: blur(10px);
+  color: white !important;
+  padding: 10px;
+  transition: 0.3s;
+   transition: all 0.3s ease;
+   animation: fadeIn 0.4s ease;
 }
 
-.landingPageContainer h1 span{
-  color:#FF9;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.landingPageContainer h1{
-  font-size:2.2rem;
-  padding-top:25vh;
+.historyCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
-.landingMainContainer{
-  display:flex;
-  justify-content: space-between;
-  padding-inline:3rem;
+/* TEXT */
+.meetingCode {
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
-.landingMainContainer img {
-  width: 90%;            
-  max-height: 75vh;        
-  object-fit: cover;       
-  border-radius: 24px;
-  box-shadow: 
-      0 40px 120px rgba(0,0,0,0.6),
-      0 10px 40px rgba(0,0,0,0.4);
-
-  /* Slight floating effect */
-  transform: translateY(20px);
-
-  display: block;  
-  margin-left: auto; 
-
-  transition: transform 0.5s ease, 
-              box-shadow 0.5s ease,
-              filter 0.4s ease;
+.meetingDate {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin: 10px 0;
+  padding-top: 10px;
 }
 
-.landingMainContainer img:hover{
-     transform: translateY(-6px) scale(1.03);
-
-   box-shadow:
-      0 60px 140px rgba(0,0,0,0.7),
-      0 20px 60px rgba(0,0,0,0.5);
-
-   /* Slight brightness boost */
-   filter: brightness(1.08);
+/* BUTTON */
+.rejoinBtn {
+  background: linear-gradient(135deg, #ff9839, #ff6a00) !important;
+  color: white !important;
+  border-radius: 20px !important;
+  font-weight: 500;
 }
 
 
-.landingMainContainer > div:nth-child(1) div[role='button'] {
-  background-color: #D97500;
-  width:fit-content;
-  padding:1rem;
-  border-radius:20px;
+
+/* EMPTY STATE */
+.noHistory {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 50px;
+  color: #aaa;
+  opacity: 0.8;
+  letter-spacing: 0.5px;
 }
 
-.landingMainContainer > div:nth-child(1) div[role='button'] a {
-  text-decoration: none;
-  color:white;
-  font-size:1rem;
+@media (max-width: 768px) {
+
+  .historyContainer {
+    padding: 1rem;
+  }
+
+  .historyNavbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
 }
 
-.navBar {
-  display:flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-inline:20px;
-  text-align:center;
-}
 
-.leftPanel{
-  height:100%;
-  display:flex;
-  align-items: center;
-  margin-top:10%;
-  margin-left:50px;
-}
-
-.rightPanel{
-  display:flex;
-  align-items:center;
-}
-
-.rightPanel > img {
-  width:40vw;
-  height:auto;
-  border-radius:20px;
-  align-items: center;
-  margin-left:50%;
-  margin-top:-10%;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.25);
-   transition: 
-      transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-      box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-      filter 0.5s ease;
-}
-
-.rightPanel > img:hover{
-      transform: translateY(-12px) scale(1.04);
-
-   box-shadow:
-      0 60px 140px rgba(0,0,0,0.7),
-      0 20px 60px rgba(0,0,0,0.5);
-
-   filter: brightness(1.08);
-}

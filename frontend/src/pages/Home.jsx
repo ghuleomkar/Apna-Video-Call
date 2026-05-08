@@ -17,58 +17,65 @@ function HomeComponent() {
   };
 
   return (
-    <>
-      <div className="navBar">
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <h2>Apna Video Call</h2>
-        </div>
+<>
+  <div className="navBar">
+  <div className="logoSection">
+    <h2>NexMeet</h2>
+  </div>
 
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <IconButton
-            onClick={() => {
-              navigate("/history");
-            }}
-          >
-            <RestoreIcon />
-          </IconButton>
-          <p>History</p>
+  <div className="navActions">
+    <IconButton
+      onClick={() => {
+        navigate("/history");
+      }}
+    >
+      
+      <RestoreIcon />
 
-          <Button
-            onClick={() => {
-              localStorage.removeItem("token");
-              navigate("/auth");
-            }}
-          >
-            Logout
-          </Button>
-        </div>
+    </IconButton>
+    <p>History</p>
+
+    <Button
+      className="logoutBtn"
+      onClick={() => {
+        localStorage.removeItem("token");
+        navigate("/auth");
+      }}
+    >
+      Logout
+    </Button>
+  </div>
+</div>
+
+<div className="meetContainer">
+  <div className="leftPanel">
+    <div className="meetingBox">
+      <h2>Start or Join Meetings Instantly</h2>
+
+      <div className="joinSection">
+        <TextField
+          onChange={(e) => setMeetingCode(e.target.value)}
+          label="Enter Meeting Code"
+          variant="outlined"
+          fullWidth
+        />
+        <Button onClick={handleJoinVideoCall} variant="contained">
+          Join
+        </Button>
       </div>
+    </div>
+  </div>
 
-      <div className="meetContainer">
-        <div className="leftPanel">
-          <div>
-            <h2>Start or Join Meetings Instantly</h2>
-            <br></br>
-
-            <div style={{ display: "flex", gap: "10px" }}>
-              <TextField
-                onChange={(e) => setMeetingCode(e.target.value)}
-                id="outlined-basic"
-                label="Meeting Code"
-                variant="outlined"
-              />
-              <Button onClick={handleJoinVideoCall} variant="contained">
-                Join
-              </Button>
-            </div>
-          </div>
-        </div>
-        <div className="rightPanel">
-          <img srcSet="/logo3.png" alt="" />
-        </div>
-      </div>
+  <div className="rightPanel">
+    <img src="/logo3.png" alt="meeting" />
+  </div>
+</div>
     </>
   );
 }
 
 export default withAuth(HomeComponent);
+
+
+
+
