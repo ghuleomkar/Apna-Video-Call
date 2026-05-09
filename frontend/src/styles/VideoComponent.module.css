@@ -141,14 +141,14 @@
    pointer-events: auto;
   
 } 
-/* .conferenceView {
+.conferenceView {
   position: relative;
   z-index: 1;
 }
 
 .chatRoom {
   z-index: 999;
-} */
+}
  
 
 .chatContainer {
