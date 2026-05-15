@@ -1,6 +1,6 @@
-# 📞 Zoom-Inspired Real-Time Video Conferencing Platform
+# 📞 NexMeet – Real-Time Video Conferencing Platform
 
-A scalable real-time video conferencing web application that enables seamless peer-to-peer audio and video communication. Built using **WebRTC**, **Socket.io**, **Node.js**, and **Express**, this platform allows users to instantly create or join meeting rooms and collaborate with low-latency media streaming.
+A real-time video conferencing web application that enables seamless peer-to-peer audio and video communication. Built using **WebRTC**, **Socket.io**, **Node.js**, and **Express**, this platform allows users to instantly create or join meeting rooms and collaborate with low-latency media streaming.
 
 👉 Designed with a focus on performance, reliability, and real-world communication architecture.
 
@@ -12,17 +12,18 @@ A scalable real-time video conferencing web application that enables seamless pe
 
 ## 🛠 Tech Stack
 
-**Frontend:** HTML, CSS, JavaScript  
+**Frontend:** React.js, CSS3, Material UI (MUI)  
 **Backend:** Node.js, Express.js  
 **Real-Time Communication:** WebRTC, Socket.io  
 **Architecture:** Peer-to-Peer (P2P) Media Streaming  
-**Deployment:** Render  
+**Other Technologies:** WebSockets, MediaDevices API  
+**Deployment:** Render
 
 ---
 
 ## ⭐ Key Features
 
-✅ Real-time high-quality video & audio calling  
+✅ Real-time low-latency video & audio communication    
 ✅ Secure room-based meeting system  
 ✅ Peer-to-peer connection for minimal latency  
 ✅ WebSocket-based signaling using Socket.io  
@@ -38,23 +39,30 @@ A scalable real-time video conferencing web application that enables seamless pe
 
 ### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/ghuleomkar/Apna-Video-Call.git
+git clone https://github.com/ghuleomkar/NexMeet.git
 ```
 
 ### 2️⃣ Navigate to project directory
 ```bash
-cd Apna-Video-Call
+cd NexMeet
 ```
 
 ### 3️⃣ Install dependencies
 ```bash
+cd frontend
 npm install
+
+Start frontend server
+npm start
+
+cd ../backend
+npm install
+
+Start backend server
+npm run dev
 ```
 
-### 4️⃣ Start the server
-```bash
-node app.js
-```
+
 
 ### 5️⃣ Open in browser
 ```bash
@@ -77,8 +85,11 @@ http://localhost:3000
 
 ✔ Strong understanding of real-time communication systems  
 ✔ Hands-on experience with WebRTC signaling flow  
-✔ Ability to design scalable backend architecture  
+✔ Understanding of WebRTC offer/answer negotiation  
+✔ ICE candidate exchange implementation  
 ✔ Practical knowledge of WebSockets  
+✔ Real-time event-driven architecture  
+✔ Frontend-backend synchronization using WebSockets  
 ✔ Building production-style full stack applications  
 
 ---
